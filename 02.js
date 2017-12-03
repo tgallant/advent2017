@@ -43,33 +43,33 @@ function checksum2 (str) {
 }
 
 function kCombinations(set, k) {
-	var i, j, combs, head, tailcombs;
+  let i, j, combs, head, tailcombs;
 
-	if (k > set.length || k <= 0) {
-		return [];
-	}
+  if (k > set.length || k <= 0) {
+    return []
+  }
 
-	if (k == set.length) {
-		return [set];
-	}
+  if (k === set.length) {
+    return [set]
+  }
 
-	if (k == 1) {
-		combs = [];
-		for (i = 0; i < set.length; i++) {
-			combs.push([set[i]]);
-		}
-		return combs;
-	}
+  if (k === 1) {
+    combs = []
+    for (i = 0; i < set.length; i++) {
+      combs.push([set[i]])
+    }
+    return combs
+  }
 
-	combs = [];
-	for (i = 0; i < set.length - k + 1; i++) {
-		head = set.slice(i, i + 1);
-		tailcombs = kCombinations(set.slice(i + 1), k - 1);
-		for (j = 0; j < tailcombs.length; j++) {
-			combs.push(head.concat(tailcombs[j]));
-		}
-	}
-	return combs;
+  combs = []
+  for (i = 0; i < set.length - k + 1; i++) {
+    head = set.slice(i, i + 1)
+    tailcombs = kCombinations(set.slice(i + 1), k - 1)
+    for (j = 0; j < tailcombs.length; j++) {
+      combs.push(head.concat(tailcombs[j]))
+    }
+  }
+  return combs
 }
 
 const input = `86	440	233	83	393	420	228	491	159	13	110	135	97	238	92	396
